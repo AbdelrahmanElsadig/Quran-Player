@@ -1,0 +1,19 @@
+{
+  "name": "quran-player",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./scripts/script.js",
+  "scripts": {
+    "build": "webpack"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "howler": "^2.2.3"
+  },
+  "devDependencies": {
+    "webpack": "^5.71.0",
+    "webpack-cli": "^4.9.2"
+  }
+}

@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+:root {
+    --main-bg-color: #1a1a1a;
+    --main-font-color: white;
+    --secondary-font-color: #aaa;
+    --light-white: #eee;
+    --light-green: #33b75c;
+    --light-red: #b73333;
+    --font-main-stack: 'Quicksand', sans-serif;
+    --transition-duration: 0.3s;
+    font-size: 16px;
+    --fs-100: 1rem;
+    --fs-200: 1.25rem;
+    --fs-300: 1.5rem;
+    --fs-400: 1.75rem;
+    --fs-500: 2rem;
+}
+
+body {
+    transition: var(--transition-duration);
+    background: linear-gradient(to bottom, var(--light-green), #100206);
+    display: flex;
+    flex-flow: column;
+    min-height: 100vh;
+    font-family: var(--font-main-stack);
+    color: var(--main-font-color)
+}
+
+.main {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-top: 2rem;
+    flex-flow: column;
+    gap: 1rem;
+}
+
+.control {
+    display: flex;
+    flex-flow: column;
+    gap: 0.3rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    font-size: var(--fs-500);
+}
+
+.sub-title {
+    color: var(--secondary-font-color);
+    font-weight: 300;
+    font-size: var(--fs-200)
+}
+
+.made-by {
+    text-decoration: none;
+    color: var(--main-font-color);
+    transition: ease-in-out var(--transition-duration)
+}
+
+.made-by:hover {
+    color: lightseagreen
+}
+
+
+.surahs {
+    width: 95%;
+    margin: 0 auto;
+    padding: 1.4rem;
+}
+
+.surah {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    padding: 1rem;
+    transition: var(--transition-duration) ease;
+}
+
+.surah:hover,
+.surah.active {
+    background-color: hsl(0, 0%, 0%, 0.7);
+}
+
+
+
+.surah-name {
+    font-weight: 600;
+}
+
+.reciter {
+    color: var(--secondary-font-color)
+}
+
+.info {
+    display: flex;
+    flex-flow: column;
+    gap: 0.3rem;
+}
+
+
+.duration {
+    margin-left: auto;
+    color: var(--secondary-font-color);
+    font-weight: 600;
+}
+
+.play-btn {
+    width: 1rem;
+    filter: brightness(0) invert(1);
+    cursor: pointer;
+}
+
+.play-btn.active {
+    filter: brightness(0) saturate(100%) invert(59%) sepia(14%) saturate(1950%) hue-rotate(86deg) brightness(97%) contrast(92%);
+}
+
+.progress-bar {
+    position: fixed;
+    top: 0;
+    height: 0.5rem;
+    width: 100%;
+    background-color: var(--main-bg-color);
+    transition: var(--transition-duration) ease-in-out;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.inner-bar {
+    width: 0;
+    transition: var(--transition-duration) ease-in-out width;
+    background-color: rgb(18, 49, 150);
+    height: 100%;
+    position: absolute;
+    z-index: 99;
+}
