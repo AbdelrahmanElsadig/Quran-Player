@@ -1,8 +1,7 @@
-import howler from 'howler'
 import {surahs,create_surahs} from './surahs.js'
 import {create_btn_events, audio} from './btns.js'
 import { time_skip} from './progress_bar.js'
-import {volume_bar,get_volume} from './volume_bar.js'
+import {volume_bar} from './volume_bar.js'
 create_surahs()
 
 create_btn_events(surahs)
