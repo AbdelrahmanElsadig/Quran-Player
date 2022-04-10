@@ -7,7 +7,7 @@ const path = {
         return res
     }
 }
-const BASE = `../Quran/`;
+const BASE = `../quran/`;
 path.join(BASE,`Surat_Al-'Alaq.mp3`)
 
 
