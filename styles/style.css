@@ -144,3 +144,10 @@ body {
     position: absolute;
     z-index: 99;
 }
+
+@media (min-width: 780px) {
+    .main {
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+    }
+}
