@@ -2,7 +2,7 @@ import {
     Howler,
     Howl
 } from "howler";
-
+import { get_volume } from "./volume_bar";
 var audio;
 
 function create_btn_events(surahs) {
@@ -22,7 +22,7 @@ function create_btn_events(surahs) {
             if(!audio || audio._src != [surahs[surah.dataset.id].url]){
                 audio = new Howl({
                 src :[surahs[surah.dataset.id].url],
-                volume: 1.0,
+                volume: get_volume(),
                 onend: () => {
                     if(!surah.nextElementSibling) {
                         deactivate(surah) 
