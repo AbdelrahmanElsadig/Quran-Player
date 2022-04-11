@@ -2,7 +2,14 @@ import {
     Howler,
     Howl
 } from "howler";
+import { urls } from "./surahs";
 import { get_volume } from "./volume_bar";
+
+var loader = new Howl({
+    src: urls,
+    volume: get_volume()
+})
+
 var audio;
 
 function create_btn_events(surahs) {

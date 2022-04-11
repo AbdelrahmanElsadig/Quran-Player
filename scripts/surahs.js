@@ -77,4 +77,12 @@ function create_surahs() {
     })
 }
 
-export {surahs, create_surahs}
+let urls = (() => {
+    let arr = [];
+    surahs.forEach(surah => {
+        arr.push(surah.url)
+    })
+    return arr
+})()
+
+export {surahs, create_surahs,urls}
