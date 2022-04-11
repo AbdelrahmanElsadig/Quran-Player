@@ -12,7 +12,7 @@ const path = {
         return res
     }
 }
-const BASE = `https://abdelrahmanelsadig.github.io/Quran-Player/Quran/`;
+const BASE = `https://abdelrahmanelsadig.github.io/Quran-Player/Quran`;
 
 
 const surahs = [
