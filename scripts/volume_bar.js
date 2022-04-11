@@ -23,7 +23,7 @@ const volume_bar = () => {
         btn.style.left = progress + '%';
         unused_bar.style.width = 100 - progress + '%';
         if (!audio) return;
-        audio.volume(get_volume())
+        audio.volume = get_volume();
     });
 
     btn.addEventListener('mouseup', (e) => {
@@ -35,7 +35,7 @@ const volume_bar = () => {
         btn.style.left = progress + '%';
         unused_bar.style.width = 100 - progress + '%';
         if (!audio) return;
-        audio.volume(get_volume())
+        audio.volume = get_volume();
     });
 
     bar.addEventListener('click', e => {     
@@ -49,7 +49,7 @@ const volume_bar = () => {
         btn.style.left = progress + '%';
         unused_bar.style.width = 100 - progress + '%';
         if (!audio) return;
-        audio.volume(get_volume())
+        audio.volume = get_volume();
     });
 
 

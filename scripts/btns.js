@@ -19,19 +19,17 @@ function create_btn_events(surahs) {
                 btn.setAttribute('src', './images/play.svg');
                 return
             }
-            if(!audio || audio._src != [surahs[surah.dataset.id].url]){
-                audio = new Howl({
-                src :[surahs[surah.dataset.id].url],
-                volume: get_volume(),
-                onend: () => {
+            if(!audio || audio.src != surahs[surah.dataset.id].url){
+                audio = new Audio(surahs[surah.dataset.id].url);
+                audio.volume = get_volume();
+                audio.addEventListener('ended', () => {
                     if(!surah.nextElementSibling) {
                         deactivate(surah) 
                         return 
                     }
-
                     surah.nextElementSibling.querySelector('.play-btn').click()
-                }
                 })
+            
             }
             
             btn.setAttribute('src', './images/pause.svg')
@@ -43,7 +41,7 @@ function create_btn_events(surahs) {
 }
 
 function deactivate(surah){
-    audio.stop()
+    audio.pause()
     const btn = surah.querySelector('.play-btn');
     surah.classList.remove('active');
     btn.classList.remove('active');
