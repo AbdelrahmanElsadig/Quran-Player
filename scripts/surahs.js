@@ -13,7 +13,6 @@ const path = {
     }
 }
 const BASE = `https://abdelrahmanelsadig.github.io/Quran-Player/Quran/`;
-path.join(BASE,`Surat_Al-'Alaq.mp3`)
 
 
 const surahs = [
