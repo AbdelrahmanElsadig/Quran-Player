@@ -1,4 +1,4 @@
-import {surahs,create_surahs} from './surahs.js'
+import {surahs,create_surahs, make_howlers} from './surahs.js'
 import {create_btn_events, audio} from './btns.js'
 import { time_skip} from './progress_bar.js'
 import {volume_bar} from './volume_bar.js'

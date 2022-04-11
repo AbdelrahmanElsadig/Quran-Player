@@ -1,3 +1,8 @@
+import { Howl } from "howler";
+import { Howler } from "howler";
+import { get_volume } from "./volume_bar";
+import { deactivate } from "./btns";
+
 const path = {
     join(...args){
         let res = ``;
@@ -7,7 +12,7 @@ const path = {
         return res
     }
 }
-const BASE = `https://abdelrahmanelsadig.github.io/Quran-Player/Quran/`;
+const BASE = `../Quran/`;
 path.join(BASE,`Surat_Al-'Alaq.mp3`)
 
 
@@ -77,12 +82,26 @@ function create_surahs() {
     })
 }
 
-let urls = (() => {
+const Howlers = function() {
     let arr = [];
     surahs.forEach(surah => {
-        arr.push(surah.url)
+        let howl = new Howl({
+            src: [surah.url],
+            volume: get_volume(),
+            onend: () => {
+                const s = document.querySelector('.surah.active')
+                if(!s.nextElementSibling) {
+                    deactivate(surah) 
+                    return 
+                }
+                s.nextElementSibling.querySelector('.play-btn').click()
+            }
+        })
+        arr.push(howl)
     })
-    return arr
-})()
+    return arr;
+}()
 
-export {surahs, create_surahs,urls}
+
+
+export {surahs, create_surahs, Howlers}

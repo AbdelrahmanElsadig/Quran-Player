@@ -2,15 +2,11 @@ import {
     Howler,
     Howl
 } from "howler";
-import { urls } from "./surahs";
+import { Howlers } from "./surahs";
 import { get_volume } from "./volume_bar";
 
-var loader = new Howl({
-    src: urls,
-    volume: get_volume()
-})
-
 var audio;
+
 
 function create_btn_events(surahs) {
     const playlist = [...document.querySelectorAll('.surah')];
@@ -27,17 +23,7 @@ function create_btn_events(surahs) {
                 return
             }
             if(!audio || audio._src != [surahs[surah.dataset.id].url]){
-                audio = new Howl({
-                src :[surahs[surah.dataset.id].url],
-                volume: get_volume(),
-                onend: () => {
-                    if(!surah.nextElementSibling) {
-                        deactivate(surah) 
-                        return 
-                    }
-                    surah.nextElementSibling.querySelector('.play-btn').click()
-                }
-            })
+                audio = Howlers[parseInt(surahs[surah.dataset.id].id)];
             
             }
             
@@ -60,6 +46,6 @@ function deactivate(surah){
 
 
 export {
-    create_btn_events, audio
+    create_btn_events, audio,deactivate
 }
 
