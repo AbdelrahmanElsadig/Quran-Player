@@ -28,10 +28,10 @@ function create_btn_events(surahs) {
                         deactivate(surah) 
                         return 
                     }
-
                     surah.nextElementSibling.querySelector('.play-btn').click()
                 }
-                })
+            })
+            
             }
             
             btn.setAttribute('src', './images/pause.svg')
@@ -43,7 +43,7 @@ function create_btn_events(surahs) {
 }
 
 function deactivate(surah){
-    audio.stop()
+    audio.pause()
     const btn = surah.querySelector('.play-btn');
     surah.classList.remove('active');
     btn.classList.remove('active');
