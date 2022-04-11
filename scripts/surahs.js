@@ -12,7 +12,7 @@ const path = {
         return res
     }
 }
-const BASE = `../Quran/`;
+const BASE = `https://abdelrahmanelsadig.github.io/Quran-Player/Quran/`;
 path.join(BASE,`Surat_Al-'Alaq.mp3`)
 
 
