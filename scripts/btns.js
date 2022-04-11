@@ -1,3 +1,7 @@
+import {
+    Howler,
+    Howl
+} from "howler";
 import { get_volume } from "./volume_bar";
 var audio;
 
@@ -15,36 +19,31 @@ function create_btn_events(surahs) {
                 btn.setAttribute('src', './images/play.svg');
                 return
             }
-            if(!audio || audio.src != surahs[surah.dataset.id].url){
-                audio = new Audio(surahs[surah.dataset.id].url);
-                audio.volume = get_volume();
-                audio.addEventListener('ended', () => {
+            if(!audio || audio._src != [surahs[surah.dataset.id].url]){
+                audio = new Howl({
+                src :[surahs[surah.dataset.id].url],
+                volume: get_volume(),
+                onend: () => {
                     if(!surah.nextElementSibling) {
                         deactivate(surah) 
                         return 
                     }
+
                     surah.nextElementSibling.querySelector('.play-btn').click()
+                }
                 })
-                audio.play()
-            
             }
             
             btn.setAttribute('src', './images/pause.svg')
             surah.classList.add('active');
             btn.classList.add('active');
-            
-            
-            let time = audio.currentTime;
-            audio.play();
-            audio.currentTime = time;
-            return 
-              
+            audio.play()
         })
     })
 }
 
 function deactivate(surah){
-    audio.pause()
+    audio.stop()
     const btn = surah.querySelector('.play-btn');
     surah.classList.remove('active');
     btn.classList.remove('active');

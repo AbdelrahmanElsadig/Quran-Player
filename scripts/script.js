@@ -11,7 +11,7 @@ volume_bar()
 setInterval(() => {
     if (!audio) return
     let loading_bar = document.querySelector('.inner-bar')
-    loading_bar.style.width = (audio.currentTime / audio.duration) * 100 + '%'
+    loading_bar.style.width = (audio.seek() / audio.duration()) * 100 + '%'
 },300)
 time_skip()
 
