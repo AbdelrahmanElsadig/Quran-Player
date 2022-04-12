@@ -37,6 +37,38 @@ const volume_bar = () => {
         if (!audio) return;
         audio.volume(get_volume())
     });
+    btn.addEventListener('touchstart', (event) => {
+        event.stopPropagation()
+        let e = event.touches[0];
+        let rect = bar.getBoundingClientRect();
+        let progress = ((e.clientX - rect.x) / rect.width) * 100 >= 100 ? 100 :
+            ((e.clientX - rect.x) / rect.width) * 100 <= 0 ? 0 : ((e.clientX - rect.x) / rect.width) * 100;
+        btn.style.left = progress + '%';
+        is_sliding = true;
+    })
+
+    btn.addEventListener('touchmove', (event) => {
+        event.stopPropagation();
+        let e = event.touches[0];
+        let rect = bar.getBoundingClientRect();
+        let progress = ((e.clientX - rect.x) / rect.width) * 100 >= 100 ? 100 :
+            ((e.clientX - rect.x) / rect.width) * 100 <= 0 ? 0 : ((e.clientX - rect.x) / rect.width) * 100;
+        btn.style.left = progress + '%';
+        unused_bar.style.width = 100 - progress + '%';
+        if (!audio) return;
+        audio.volume(get_volume())
+    });
+
+    btn.addEventListener('touchend', (e) => {
+        e.stopPropagation();
+        let rect = bar.getBoundingClientRect();
+        let progress = ((e.clientX - rect.x) / rect.width) * 100 >= 100 ? 100 :
+            ((e.clientX - rect.x) / rect.width) * 100 <= 0 ? 0 : ((e.clientX - rect.x) / rect.width) * 100;
+        btn.style.left = progress + '%';
+        unused_bar.style.width = 100 - progress + '%';
+        if (!audio) return;
+        audio.volume(get_volume())
+    });
 
     bar.addEventListener('click', e => {     
         if(is_sliding) {

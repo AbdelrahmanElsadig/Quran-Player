@@ -1,5 +1,4 @@
 import { Howl } from "howler";
-import { Howler } from "howler";
 import { get_volume } from "./volume_bar";
 import { deactivate } from "./btns";
 
@@ -12,7 +11,7 @@ const path = {
         return res
     }
 }
-const BASE = `https://abdelrahmanelsadig.github.io/Quran-Player/Quran/`;
+const BASE = `../Quran/`;
 
 
 const surahs = [
